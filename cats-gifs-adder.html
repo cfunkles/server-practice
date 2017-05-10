@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cat Gifs</title>
+	<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+</head>
+<body>
+	<div>
+		<ul class="existingGifs"></ul>
+	</div>
+	<div class="getGif">
+		<p>Input one of the numbers from the list above</p>
+		<label>Get:</label><input type="text" id="gif">
+		<button id="getgif"> Get Cat </button>
+	</div>
+	<div class="displayGif"></div>
+	<div class="postGif">
+		<p> Input a link to a new catgif</p>
+		<label>Post:</label>
+		<input type="text" id="newGif">
+		<button id="postgif">Post Cat</button>
+	</div>
+
+	<script>
+		var imgSrcs = ['http://media.riffsy.com/images/9f6294e02f0c69c5a0491ddc9020091b/tenor.gif', 'http://media.riffsy.com/images/a2eb9324c34fdbe5949ebdfbb384d739/tenor.gif', 'http://media.riffsy.com/images/675cc65277af8b1cab977096086169b8/tenor.gif', 'http://media.riffsy.com/images/68caf89c9adc5fedde395283cc56015f/tenor.gif', 'http://media.riffsy.com/images/292cfa561e5bfdcc98b05dfd6d7c5ab2/tenor.gif'];
+		var listItems = '<li>';
+		$(document).ready(function() {
+			for(var i in imgSrcs){
+				$('.existingGifs').append('<li>' + i + '</li>');
+			}
+		});
+		$('#getgif').click(function() {
+			//console.log($('#getGif').val());
+			$('.displayGif').html('<img src="'+ imgSrcs[$('#gif').val()] + '"/>');
+		});
+		$('#postgif').click(function(){
+			imgSrcs.push($('#newGif').val());
+			$('.existingGifs').append('<li>' + parseInt(imgSrcs.length - 1) + '</li>');
+		});
+	</script>
+</body>
+</html>

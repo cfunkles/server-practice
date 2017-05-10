@@ -1,0 +1,20 @@
+Instructions for Node Counting Server Exercise
+
+PART ONE:
+
+Your task is to create a simple node HTTP server with the following two routes:
+
+1. If the user visits the "homepage" (req.url is "/" -- http://localhost:8080/), show the user a simple HTML page with some information about cats.
+2. If the user visits the "count" page (req.url is "/count" -- http://localhost:8080/count), show the user how many times the homepage has been visited. (Hint: you may not want to use an HTML page for this...)
+
+You will have to store a variable to count the number of times the homepage is visited. Count each request to that page as a visit.
+Hint: Check the scope of your variable -- make sure it persists across requests!
+Hint: The information about cats is not important and won't score you extra points! Functionality first, then fun :)
+
+PART TWO:
+
+Instead of storing the number of visits in a variable, write the visit count to file, and read it in again when the server is visited.
+
+Hint: Read the file when the server starts up, then store that number in a variable.
+Hint: Whenever someone visits, write the new value of that number to disk.
+Hint: Make sure to handle the case where the storage file does not exist when the server starts up (err in readFile)
